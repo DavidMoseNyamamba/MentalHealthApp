@@ -16,6 +16,7 @@ import com.example.mentalhealthapp.ui.theme.MentalHealthAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main) // Set the layout
         enableEdgeToEdge()
         setContent {
             MentalHealthAppTheme {

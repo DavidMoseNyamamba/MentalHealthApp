@@ -57,14 +57,14 @@
 
         <Button
             android:id="@+id/tabResources"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:layout_weight="1"
             android:text="Health Resources"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_margin="4dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/tabProfile"

@@ -4,5 +4,12 @@
     <string name="start_session">Login</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
+    <string name="password">Password</string>
+    <string name="logon">Login</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
 
 </resources>

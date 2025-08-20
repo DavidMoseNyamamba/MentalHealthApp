@@ -1,12 +1,9 @@
-package com.example.mentalhealthapp // Replace with your package
+package com.example.mentalhealthapp
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.focus.requestFocus
-import androidx.compose.ui.semantics.error
 import androidx.compose.ui.semantics.text
 import com.example.mentalhealthapp.databinding.ActivityLoginBinding // Assuming your layout is activity_login.xml
 
@@ -89,5 +86,4 @@ class LoginActivity : AppCompatActivity() {
         binding.editTextLoginPassword.error = null
         return true
     }
-}
 

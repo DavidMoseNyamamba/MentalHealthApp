@@ -1,50 +1,83 @@
-<androidx.constraintlayout.widget.ConstraintLayout ...>
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-<EditText
-android:id="@+id/editTextRegisterFullName"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:hint="Full Name"
-android:inputType="textPersonName"
-    ... />
+    <EditText
+        android:id="@+id/editTextRegisterFullName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:autofillHints=""
+        android:hint="@string/full_name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<EditText
-android:id="@+id/editTextRegisterEmail"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:hint="Email"
-android:inputType="textEmailAddress"
-    ... />
+    <EditText
+        android:id="@+id/editTextRegisterEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextRegisterFullName" />
 
-<EditText
-android:id="@+id/editTextRegisterPassword"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:hint="Password"
-android:inputType="textPassword"
-    ... />
+    <EditText
+        android:id="@+id/editTextRegisterPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextRegisterEmail" />
 
-<EditText
-android:id="@+id/editTextRegisterConfirmPassword"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:hint="Confirm Password"
-android:inputType="textPassword"
-    ... />
+    <EditText
+        android:id="@+id/editTextRegisterConfirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextRegisterPassword" />
 
 <Button
 android:id="@+id/buttonPerformRegister"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="Register"
-    ... />
+app:layout_constraintTop_toBottomOf="@id/editTextRegisterConfirmPassword"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="24dp"
+    />
 
 <TextView
 android:id="@+id/textViewLoginLink"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
-android:text="Already have an account? Login"
-    ... />
+android:text="@string/already_have_an_account_login"
+app:layout_constraintTop_toBottomOf="@id/buttonPerformRegister"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="16dp"
+android:textColor="@android:color/holo_blue_dark"
+    />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+</androidx.constraintlayout.widget.ConstraintLayout>

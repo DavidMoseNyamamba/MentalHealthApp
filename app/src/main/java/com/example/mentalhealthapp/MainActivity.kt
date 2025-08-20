@@ -1,8 +1,8 @@
 package com.example.mentalhealthapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
@@ -16,24 +16,23 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun setupTabButtons() {
-        val tabContent = findViewById<TextView>(R.id.tabContent)
         val trackerButton = findViewById<Button>(R.id.tabTracker)
         val resourcesButton = findViewById<Button>(R.id.tabResources)
         val profileButton = findViewById<Button>(R.id.tabProfile)
 
         trackerButton.setOnClickListener {
-            tabContent.text = "Mood Tracker\n\nTrack your daily mood and mental health progress here."
+            // Navigate to MoodTrackerActivity
+            startActivity(Intent(this, MoodTrackerActivity::class.java))
         }
 
         resourcesButton.setOnClickListener {
-            tabContent.text = "Resources\n\nFind helpful mental health resources and articles here."
+            // Navigate to HealthResourcesActivity
+            startActivity(Intent(this, HealthResourcesActivity::class.java))
         }
 
         profileButton.setOnClickListener {
-            tabContent.text = "Profile\n\nManage your profile and app settings here."
+            // Navigate to ProfileActivity
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
-
-        // Set default tab content
-        tabContent.text = "Mood Tracker\n\nTrack your daily mood and mental health progress here."
     }
 }

@@ -2,8 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.google.gms.google.services)
-    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -57,18 +55,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-
-    // Firebase BOM - manages all Firebase library versions
-    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
-
-    // Firebase services for Mental Health App
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore")
-    implementation("com.google.firebase:firebase-storage")
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-crashlytics")
-    implementation("com.google.firebase:firebase-messaging")
-    implementation(libs.firebase.ai)
 
     // Test dependencies
     testImplementation(libs.junit)

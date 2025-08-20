@@ -6,39 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Welcome TextView -->
-    <TextView
-        android:id="@+id/textViewWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/welcome_to_mental_health_app"
+    <!-- Main App Content Area -->
+    <LinearLayout
+        android:id="@+id/contentArea"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="100dp"/>
+        app:layout_constraintBottom_toTopOf="@id/tabButtonsLayout">
 
-    <!-- Login Button -->
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login"
-        app:layout_constraintTop_toBottomOf="@id/textViewWelcome"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"
-        />
+        <TextView
+            android:id="@+id/tabContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to MediCare\n\nYour mental health companion"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@android:color/black" />
 
-    <!-- Register Button -->
-    <Button
-        android:id="@+id/buttonRegister"
-        android:layout_width="wrap_content"
+    </LinearLayout>
+
+    <!-- Bottom Tab Buttons -->
+    <LinearLayout
+        android:id="@+id/tabButtonsLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register"
-        app:layout_constraintTop_toBottomOf="@id/buttonLogin"
+        android:orientation="horizontal"
+        android:background="#E0E0E0"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/tabTracker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mood Tracker"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="4dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        <Button
+            android:id="@+id/tabResources"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Health Resources"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="4dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        <Button
+            android:id="@+id/tabProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="My Profile"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="4dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

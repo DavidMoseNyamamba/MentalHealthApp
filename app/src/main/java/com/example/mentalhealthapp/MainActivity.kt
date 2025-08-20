@@ -46,3 +46,15 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+
+// In your existing MainActivity.kt
+
+// ... binding setup ...
+
+binding.buttonLogin.setOnClickListener {
+    startActivity(Intent(this, LoginActivity::class.java))
+}
+
+binding.buttonRegister.setOnClickListener {
+    startActivity(Intent(this, RegisterActivity::class.java))
+}

@@ -1,0 +1,33 @@
+<androidx.constraintlayout.widget.ConstraintLayout >
+
+<EditText
+android:id="@+id/editTextLoginEmail"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:hint="Email"
+android:inputType="textEmailAddress"
+     />
+
+<EditText
+android:id="@+id/editTextLoginPassword"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:hint="Password"
+android:inputType="textPassword"
+     />
+
+<Button
+android:id="@+id/buttonPerformLogin"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Login"
+    />
+
+<TextView
+android:id="@+id/textViewRegisterLink"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Don't have an account? Register"
+    />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

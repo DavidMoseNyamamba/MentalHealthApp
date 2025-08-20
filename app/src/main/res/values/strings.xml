@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MentalHealthApp</string>
-    <string name="welcome_to_mental_health_app">Welcome to Mental Health App</string>
+    <string name="welcome_to_mental_health_app">Welcome to MediCareApp</string>
     <string name="start_session">Login</string>
     <string name="register">Register</string>
     <string name="login">Login</string>

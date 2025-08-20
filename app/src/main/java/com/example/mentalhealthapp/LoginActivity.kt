@@ -6,15 +6,20 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mentalhealthapp.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Initialize Firebase Auth
+        auth = FirebaseManager.auth
 
         binding.buttonPerformLogin.setOnClickListener {
             handleLogin()
@@ -23,42 +28,44 @@ class LoginActivity : AppCompatActivity() {
         binding.textViewRegisterLink.setOnClickListener {
             // Navigate to RegisterActivity
             startActivity(Intent(this, RegisterActivity::class.java))
-            // Optional: finish LoginActivity if you don't want it in back stack when user goes to register
-            // finish()
         }
     }
 
     private fun handleLogin() {
         val email = binding.editTextLoginEmail.text.toString().trim()
-        val password = binding.editTextLoginPassword.text.toString() // No trim for password
+        val password = binding.editTextLoginPassword.text.toString()
 
         if (!validateInput(email, password)) {
             return // Validation failed
         }
 
-        // --- TODO: Perform Actual Login ---
-        // This is where you would integrate with your backend or Firebase for authentication.
-        // For example, using Firebase Authentication:
-        //
-        // FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-        //    .addOnCompleteListener { task ->
-        //        if (task.isSuccessful) {
-        //            // Login success
-        //            Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
-        //            // Navigate to MainActivity
-        //            startActivity(Intent(this, MainActivity::class.java))
-        //            finishAffinity() // Clear back stack so user can't go back to login screen
-        //        } else {
-        //            // Login failed
-        //            Toast.makeText(this, "Login failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
-        //        }
-        //    }
+        // Show loading state
+        binding.buttonPerformLogin.isEnabled = false
+        binding.buttonPerformLogin.text = "Logging in..."
 
-        // Placeholder for now:
-        Toast.makeText(this, "Login logic for '$email' would go here.", Toast.LENGTH_LONG).show()
-        // Simulate success and navigate to main app
-        startActivity(Intent(this, MainActivity::class.java))
-        finishAffinity()
+        // Firebase Authentication
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                binding.buttonPerformLogin.isEnabled = true
+                binding.buttonPerformLogin.text = "Login"
+
+                if (task.isSuccessful) {
+                    // Login success
+                    val user = auth.currentUser
+                    Toast.makeText(this, "Welcome back, ${user?.email}!", Toast.LENGTH_SHORT).show()
+
+                    // Log analytics event
+                    FirebaseManager.analytics.logEvent("user_login", null)
+
+                    // Navigate to MainActivity
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finishAffinity() // Clear back stack
+                } else {
+                    // Login failed
+                    val errorMessage = task.exception?.message ?: "Login failed"
+                    Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
+                }
+            }
     }
 
     private fun validateInput(email: String, password: String): Boolean {

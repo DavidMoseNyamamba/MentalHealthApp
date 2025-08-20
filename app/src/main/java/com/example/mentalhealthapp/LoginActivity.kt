@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
-import androidx.compose.ui.semantics.text
-import com.example.mentalhealthapp.databinding.ActivityLoginBinding // Assuming your layout is activity_login.xml
+import androidx.appcompat.app.AppCompatActivity
+import com.example.mentalhealthapp.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -86,4 +86,4 @@ class LoginActivity : AppCompatActivity() {
         binding.editTextLoginPassword.error = null
         return true
     }
-
+}
